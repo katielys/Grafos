@@ -1,51 +1,65 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
 using namespace std;
 
+//katiely - 1862 Westeros - DFS - 30.08
 
-int vertex, edges;
+int nVertex, nEdges;
 
-void dfs(vector<bool> &visited, vector<vector<int> > &graph, int nowVertex) {
-    visited[nowVertex] = true;
-    vertex += 1;
-    edges += graph[nowVertex].size();
-    for(int v=0; v<graph[nowVertex].size();v++) {
+void dfs(vector<bool> &visited, vector<vector<int> > &graph, int s) {
+    visited[s] = true;
+    nVertex += 1;
+    nEdges += graph[s].size();
+    for(int v : graph[s]) {
         if(!visited[v])
             dfs(visited, graph, v);
     }
 }
 
 int main() {
-    int v;
+  
+    int numberOfPeople;
     char c;
-    cin >> v;
-    vector<vector<int> > graph(v);
-    vector<bool>  visited(v);
-    for(int i=0; i<v; i++) {
-        for(int j=0; j<v; j++) {
+    cin >> numberOfPeople;
+
+    vector<vector<int> > graph(numberOfPeople);
+    vector<bool> visited(numberOfPeople);
+
+    for(int i=0; i<numberOfPeople; i++) {
+        for(int j=0; j<numberOfPeople; j++) {
             cin >> c;
             if(i != j && c == 'S')
                 graph[i].push_back(j);
         }
     }
 
-    vector<int> componts;
-    for(int i=0; i<v; i++) {
+    vector<int> neighbourhoodWesteros;
+
+    for(int i=0; i<numberOfPeople; i++) {
         if(!visited[i]) {
-            vertex = edges = 0;
+            nVertex =0;
+            nEdges = 0;
             dfs(visited, graph, i);
-            if((vertex * (vertex - 1) != edges)) {
-                cout << "-1\n";
+            if((nVertex * (nVertex - 1) != nEdges)) {
+                cout << -1 <<endl;
                 return 0;
             }
-            componts.push_back(vertex);
+            neighbourhoodWesteros.push_back(nVertex);
         }
     }
-    sort(componts.rbegin(), componts.rend());
-    cout << componts.size() << '\n';
-    for(int i=0; i<componts.size(); i++) {
-        cout << componts[i];
-        if(i < componts.size() - 1) cout << ' ';
+    sort(neighbourhoodWesteros.rbegin(), neighbourhoodWesteros.rend());
+    cout << neighbourhoodWesteros.size() << endl;
+    for(int i=0; i<neighbourhoodWesteros.size(); i++) {
+
+        cout << neighbourhoodWesteros[i];
+        if(i < neighbourhoodWesteros.size() - 1){
+        	cout << ' ';
+        } 
     }
     cout << endl;
+    visited.clear();
+    graph.clear();
     return 0;
 }
