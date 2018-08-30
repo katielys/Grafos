@@ -2,7 +2,6 @@
 #include <algorithm>
 
 //moskRocks byte 1152.cpp
-#define MAX  200000 ;
 using namespace std;
  
 typedef struct {
@@ -36,7 +35,8 @@ int hasCicle(int path[], int src, int dest) {
 int main() {
     int totalVertexs, totalEdges;
      
-    int path[200000]; edge edges[200000];
+    int path[200000]; 
+    edge edges[200000];
     while (cin>> totalVertexs >> totalEdges) {
          if( totalVertexs==0 && totalEdges==0){
              return 0;
