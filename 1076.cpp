@@ -1,12 +1,11 @@
 #include <iostream>
-#include
-#define V 100
-
-/* Katiely */
+#include <stdio.h>
+#include <string.h>
+#define MAX 100
 using namespace std;
-int my_graph[V][V];
-int visiteed[V];
-int stack[V];
+int my_graph[MAX][MAX];
+int visiteed[MAX];
+int stack[MAX];
 int sizeStack = 0;
 int cont = 0;
 
@@ -28,20 +27,22 @@ void dfs (int v, int e){
 }
 
 int main(){
-	int v, a, src, y, t, firstVertex;
-	cin >>  t;
-	for(int j = 0; j < t; j++){
+	int v;
+	int a;
+	int src, dest, numberofTestes, firstVertex;
+	cin >>  numberofTestes;
+	for(int j = 0; j < numberofTestes; j++){
 		cont = 0;
 		memset(my_graph, -1, sizeof(my_graph));
 		memset(visiteed, -1, sizeof(visiteed));
 		memset(stack, -1, sizeof(stack));
-        cin >>  firstVertex;
+        cin >> firstVertex;
         cin >> v; 
         cin >> a;
 		for (int i = 0; i < a; i++){
             cin >> src ;
-            cin >> y;
-			makeEdge(src, y);
+            cin >> dest;
+			makeEdge(src, dest);
 		   
 	    }
          dfs(firstVertex, v);
