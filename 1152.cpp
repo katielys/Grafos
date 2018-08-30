@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
- 
+
+//moskRocks byte 1152.cpp
+#define MAX  200000 ;
 using namespace std;
  
 typedef struct {
@@ -35,10 +37,10 @@ int main() {
     int totalVertexs, totalEdges;
      
     int path[200000]; edge edges[200000];
-	cin >> totalVertexs;
-	cin >> totalEdges;
-    while (totalVertexs != 0 and totalEdges != 0) {
-         
+    while (cin>> totalVertexs >> totalEdges) {
+         if( totalVertexs==0 && totalEdges==0){
+             return 0;
+         }
         int cost = 0, totalCost = 0;
          
         for (int i = 0; i < totalVertexs; i++) {
