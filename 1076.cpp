@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
 #include <iostream>
+#include
 #define V 100
+
+/* Katiely */
 using namespace std;
 int my_graph[V][V];
 int visiteed[V];
