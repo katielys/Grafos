@@ -18,11 +18,16 @@ int hasCycle(Graph_t my_graph, int src, int dest){
  
  
 int main() {
-	int src,b,weight;
+	int src,dest,weight;
+	int totalCost=0;
+	int cost=0;
+
 	cin >> src;
-	cin >> b;
-	while(src!=b!=weight){
+	cin >> dest;
+	
+	while(src!=dest!=0){
 		cin >> src;
+		cin >> dest;
 	}
   
      
