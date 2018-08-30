@@ -35,10 +35,10 @@ int main() {
     int totalVertexs, totalEdges;
      
     int path[200000]; edge edges[200000];
-	cin >> totalVertexs;
-	cin >> totalEdges;
-    while (totalVertexs != 0 and totalEdges != 0) {
-         
+    while (cin>> totalEdges >> totalVertexs) {
+         if( totalEdges==0 && totalVertexs==0){
+             return 0;
+         }
         int cost = 0, totalCost = 0;
          
         for (int i = 0; i < totalVertexs; i++) {
